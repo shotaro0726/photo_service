@@ -1,0 +1,31 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+
+<div>
+  <a href="{% url 'app:index'%}">To return home</a>
+</div>
+
+<form action="{% url 'app:photos_new' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+  <table>
+    <tr>
+      <th>Title</th>
+      <td>{{form.title}}</td>
+    </tr>
+    <tr>
+      <th>Comment</th>
+      <td>{{form.comment}}</td>
+    </tr>
+    <tr>
+      <th>Image</th>
+      <td>{{form.image}}</td>
+    </tr>
+    <tr>
+      <th>Category</th>
+      <td>{{form.category}}</td>
+    </tr>
+  <table>
+ <button type="submit" class="btn">Save</button>
+</form>
+
+{% endblock  %}
